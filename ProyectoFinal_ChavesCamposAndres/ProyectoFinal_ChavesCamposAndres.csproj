@@ -16,13 +16,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\Cuenta\" />
-    <Folder Include="Views\Inicio\" />
-    <Folder Include="Views\Estudiante\" />
-    <Folder Include="Views\Carreras\" />
-  </ItemGroup>
-
 </Project>

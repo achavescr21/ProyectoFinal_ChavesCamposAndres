@@ -1,0 +1,26 @@
+﻿@model IngresoVM
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+<h1>Iniciar sesión</h1>
+<form asp-action="Ingresar" method="post" class="formulario acceso">
+    <div asp-validation-summary="ModelOnly" class="errores"></div>
+    <input asp-for="ReturnUrl" type="hidden" />
+    <div class="campo">
+        <label asp-for="Correo"></label>
+        <input asp-for="Correo" autocomplete="username" />
+        <span asp-validation-for="Correo"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="Clave"></label>
+        <input asp-for="Clave" autocomplete="current-password" />
+        <span asp-validation-for="Clave"></span>
+    </div>
+    <p>Ingresa con el correo de tu cuenta.</p>
+    <button type="submit" class="boton">Ingresar</button>
+    <p>¿Todavía no tienes una cuenta?</p>
+    <a class="boton secundario" asp-action="Registro">Crear cuenta</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

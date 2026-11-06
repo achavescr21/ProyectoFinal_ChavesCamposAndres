@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Curso>
+@{
+    ViewData["Title"] = "Cursos disponibles";
+}
+<h1>Cursos disponibles</h1>
+<p>Carrera: @ViewBag.Carrera</p>
+@if (!Model.Any())
+{
+    <p>No hay cursos disponibles para tu carrera.</p>
+}
+else
+{
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Curso</th>
+                    <th>Créditos</th>
+                    <th>Docente</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var curso in Model)
+                {
+                    <tr>
+                        <td>@curso.Codigo</td>
+                        <td>@curso.Nombre</td>
+                        <td>@curso.Creditos</td>
+                        <td>@(curso.Docente?.NombreCompleto ?? "Sin asignar")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<a asp-action="Index" class="boton secundario">Volver al inicio</a>

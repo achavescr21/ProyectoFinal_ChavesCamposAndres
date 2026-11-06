@@ -1,0 +1,50 @@
+﻿@inject UserManager<Usuario> Usuarios
+@{
+    var actual = User.Identity?.IsAuthenticated == true
+        ? await Usuarios.GetUserAsync(User)
+        : null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - MatrículaU</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="encabezado">
+        <a class="marca" asp-controller="Inicio" asp-action="Index">MatrículaU</a>
+        <span>@(actual?.NombreCompleto ?? "Sistema de matrícula universitaria")</span>
+    </header>
+
+    @if (actual is not null)
+    {
+        <nav class="menu">
+            <a asp-controller="Inicio" asp-action="Index">Inicio</a>
+            <a asp-controller="Carreras" asp-action="Index">Carreras</a>
+
+            @if (User.IsInRole("Estudiante"))
+            {
+                <a asp-controller="Estudiante" asp-action="Cursos">Cursos disponibles</a>
+            }
+
+            <form asp-controller="Cuenta" asp-action="Salir" method="post">
+                <button class="salir" type="submit">Cerrar sesión</button>
+            </form>
+        </nav>
+    }
+
+    <main class="contenido">
+        @if (TempData["Exito"] is string mensaje)
+        {
+            <div class="aviso" role="status">@mensaje</div>
+        }
+
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

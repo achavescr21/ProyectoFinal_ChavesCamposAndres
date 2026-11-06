@@ -1,22 +1,197 @@
-html {
-  font-size: 14px;
+:root {
+    --granate: #7b2432;
+    --texto: #292929;
+    --borde: #b8b8b8;
 }
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+* {
+    box-sizing: border-box;
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    color: var(--texto);
+    background: #fff;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 16px;
+}
+.encabezado {
+    min-height: 78px;
+    padding: 18px 6%;
+    background: var(--granate);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.marca {
+    color: #fff;
+    text-decoration: none;
+    font: bold 34px Cambria, Georgia, serif;
+}
+.menu {
+    margin: 0 6%;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+    .menu a,
+    .salir {
+        color: var(--texto);
+        text-decoration: none;
+        font: inherit;
+    }
+    .menu form {
+        margin: 0;
+    }
+.salir {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+.contenido {
+    width: 88%;
+    max-width: 1180px;
+    margin: 36px auto 70px;
+}
+h1,
+h2 {
+    font-family: Cambria, Georgia, serif;
+}
+h1 {
+    font-size: 34px;
+    margin: 0 0 28px;
+}
+h2 {
+    font-size: 26px;
+}
+p {
+    line-height: 1.6;
+}
+.formulario {
+    max-width: 1000px;
+}
+.acceso {
+    max-width: 550px;
+    margin: 0 auto;
+}
+.dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 36px;
+}
+.campo {
+    margin-bottom: 22px;
+}
+    .campo label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 9px;
+    }
+    .campo input,
+    .campo select {
+        width: 100%;
+        min-height: 43px;
+        padding: 10px 12px;
+        border: 1px solid var(--borde);
+        border-radius: 0;
+        background: #fff;
+        font: inherit;
+    }
+        .campo input[readonly] {
+            background: #eee;
+        }
+        .campo input:focus,
+        .campo select:focus {
+            outline: 2px solid var(--granate);
+            outline-offset: 2px;
+        }
+.boton {
+    display: inline-block;
+    margin: 8px 10px 8px 0;
+    padding: 12px 21px;
+    border: 1px solid var(--granate);
+    background: var(--granate);
+    color: #fff;
+    font: bold 16px Tahoma, Arial, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+.secundario {
+    background: #fff;
+    color: var(--granate);
+}
+.acciones {
+    margin-top: 20px;
+}
+.enlace {
+    display: inline-block;
+    margin-right: 16px;
+    color: var(--granate);
+}
+.tabla-contenedor {
+    overflow-x: auto;
+    margin: 18px 0 28px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    border: 1px solid #bbb;
+    padding: 15px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+th {
+    background: #eee;
+}
+.errores,
+.field-validation-error {
+    color: #a01717;
+}
+.field-validation-error {
+    display: block;
+    margin-top: 7px;
+}
+.input-validation-error {
+    border-color: #a01717 !important;
+}
+.validation-summary-valid,
+.field-validation-valid {
+    display: none;
+}
+.aviso {
+    border-left: 4px solid var(--granate);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    background: #f5f2f2;
+}
+.opcion {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+    align-items: center;
+    gap: 22px;
+    padding: 22px 0;
+    border-bottom: 1px solid #ddd;
+}
+@media (max-width: 760px) {
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .dos-columnas,
+    .opcion {
+        grid-template-columns: 1fr;
+    }
+    .menu {
+        gap: 18px;
+    }
+    h1 {
+        font-size: 29px;
+    }
 }

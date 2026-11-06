@@ -1,0 +1,53 @@
+﻿@model RegistroVM
+@{
+    ViewData["Title"] = "Crear cuenta de estudiante";
+}
+<h1>Crear cuenta de estudiante</h1>
+<form asp-action="Registro" method="post" class="formulario">
+    <div asp-validation-summary="ModelOnly" class="errores"></div>
+    <div class="dos-columnas">
+        <div class="campo">
+            <label asp-for="NombreCompleto"></label>
+            <input asp-for="NombreCompleto" autocomplete="name" />
+            <span asp-validation-for="NombreCompleto"></span>
+        </div>
+        <div class="campo">
+            <label asp-for="Identificacion"></label>
+            <input asp-for="Identificacion" />
+            <span asp-validation-for="Identificacion"></span>
+        </div>
+        <div class="campo">
+            <label asp-for="Correo"></label>
+            <input asp-for="Correo" autocomplete="email" />
+            <span asp-validation-for="Correo"></span>
+        </div>
+        <div class="campo">
+            <label asp-for="CarreraId"></label>
+            <select asp-for="CarreraId" asp-items="ViewBag.Carreras">
+                <option value="0">Selecciona una carrera</option>
+            </select>
+            <span asp-validation-for="CarreraId"></span>
+        </div>
+        <div class="campo">
+            <label asp-for="Clave"></label>
+            <input asp-for="Clave" autocomplete="new-password" />
+            <span asp-validation-for="Clave"></span>
+        </div>
+        <div class="campo">
+            <label asp-for="ConfirmarClave"></label>
+            <input asp-for="ConfirmarClave" autocomplete="new-password" />
+            <span asp-validation-for="ConfirmarClave"></span>
+        </div>
+    </div>
+    <p>
+        Todos los campos son obligatorios. Para mayor seguridad, la contraseña requiere una mayúscula,
+        una minúscula, un número y un símbolo.
+    </p>
+    <div class="acciones">
+        <button type="submit" class="boton">Crear cuenta</button>
+        <a asp-action="Ingresar" class="boton secundario">Ya tengo una cuenta</a>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
