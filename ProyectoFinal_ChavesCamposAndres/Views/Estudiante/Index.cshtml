@@ -1,0 +1,15 @@
+﻿@model Estudiante
+@{
+    ViewData["Title"] = "Inicio";
+}
+<h1>Inicio</h1>
+<h2>Bienvenido, @Model.Usuario?.NombreCompleto</h2>
+<p>Carrera: @Model.Carrera?.Nombre</p>
+<div class="acciones">
+    <a class="boton" asp-controller="Carreras" asp-action="Index">
+        Ver carreras disponibles
+    </a>
+    <a class="boton secundario" asp-action="Cursos">
+        Ver cursos disponibles
+    </a>
+</div>

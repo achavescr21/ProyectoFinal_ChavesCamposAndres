@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Carrera>
+@{
+    ViewData["Title"] = "Carreras";
+}
+<h1>Carreras</h1>
+@if (!Model.Any())
+{
+    <p>No hay carreras registradas.</p>
+}
+else
+{
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var carrera in Model)
+                {
+                    <tr>
+                        <td>@carrera.Codigo</td>
+                        <td>@carrera.Nombre</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
