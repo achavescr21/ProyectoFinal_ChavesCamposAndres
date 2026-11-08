@@ -1,0 +1,16 @@
+﻿@model Carrera
+@{
+    ViewData["Title"] = "Editar carrera";
+}
+<h1>Editar carrera</h1>
+<form asp-action="Editar" asp-route-id="@Model.Id"
+      method="post" class="formulario">
+    <input asp-for="Id" type="hidden" />
+    <div asp-validation-summary="ModelOnly" class="errores"></div>
+    <partial name="_Formulario" model="Model" />
+    <button type="submit" class="boton">Guardar cambios</button>
+    <a asp-action="Index" class="boton secundario">Cancelar</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

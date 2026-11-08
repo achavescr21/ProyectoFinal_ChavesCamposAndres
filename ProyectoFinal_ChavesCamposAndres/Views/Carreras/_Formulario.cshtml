@@ -1,0 +1,19 @@
+﻿@model Carrera
+
+<div class="campo">
+    <label asp-for="Codigo"></label>
+    @if (Model.Id == 0)
+    {
+        <input asp-for="Codigo" />
+    }
+    else
+    {
+        <input asp-for="Codigo" readonly />
+    }
+    <span asp-validation-for="Codigo"></span>
+</div>
+<div class="campo">
+    <label asp-for="Nombre"></label>
+    <input asp-for="Nombre" />
+    <span asp-validation-for="Nombre"></span>
+</div>

@@ -1,0 +1,23 @@
+﻿@model Carrera
+@{
+    ViewData["Title"] = "Eliminar carrera";
+}
+<h1>Eliminar carrera</h1>
+<div asp-validation-summary="ModelOnly" class="errores"></div>
+<p>Código: @Model.Codigo</p>
+<p>Carrera: @Model.Nombre</p>
+@if (ViewBag.Bloqueada is true)
+{
+    <p>
+        Esta carrera tiene estudiantes, cursos o docentes asociados
+        y no puede eliminarse.
+    </p>
+}
+else
+{
+    <p>¿Deseas eliminar esta carrera?</p>
+    <form asp-action="Eliminar" asp-route-id="@Model.Id" method="post">
+        <button class="boton" type="submit">Eliminar carrera</button>
+    </form>
+}
+<a class="boton secundario" asp-action="Index">Cancelar</a>
