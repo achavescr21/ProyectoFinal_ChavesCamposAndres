@@ -3,6 +3,10 @@
     ViewData["Title"] = "Carreras";
 }
 <h1>Carreras</h1>
+@if (User.IsInRole("Administrador"))
+{
+    <a class="boton" asp-action="Crear">Nueva carrera</a>
+}
 @if (!Model.Any())
 {
     <p>No hay carreras registradas.</p>
@@ -15,6 +19,10 @@ else
                 <tr>
                     <th>Código</th>
                     <th>Nombre</th>
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <th>Acciones</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +31,15 @@ else
                     <tr>
                         <td>@carrera.Codigo</td>
                         <td>@carrera.Nombre</td>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <td>
+                                <a class="enlace" asp-action="Editar"
+                                   asp-route-id="@carrera.Id">Editar</a>
+                                <a class="enlace" asp-action="Eliminar"
+                                   asp-route-id="@carrera.Id">Eliminar</a>
+                            </td>
+                        }
                     </tr>
                 }
             </tbody>
