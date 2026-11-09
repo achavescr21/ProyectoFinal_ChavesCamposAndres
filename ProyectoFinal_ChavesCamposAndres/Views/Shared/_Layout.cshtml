@@ -23,12 +23,14 @@
         <nav class="menu">
             <a asp-controller="Inicio" asp-action="Index">Inicio</a>
             <a asp-controller="Carreras" asp-action="Index">Carreras</a>
-
-            @if (User.IsInRole("Estudiante"))
+            @if (User.IsInRole("Administrador"))
+            {
+                <a asp-controller="Cursos" asp-action="Index">Cursos</a>
+            }
+            else if (User.IsInRole("Estudiante"))
             {
                 <a asp-controller="Estudiante" asp-action="Cursos">Cursos disponibles</a>
             }
-
             <form asp-controller="Cuenta" asp-action="Salir" method="post">
                 <button class="salir" type="submit">Cerrar sesión</button>
             </form>
