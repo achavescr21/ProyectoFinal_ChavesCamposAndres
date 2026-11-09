@@ -1,0 +1,14 @@
+﻿@model Curso
+@{
+    ViewData["Title"] = "Nuevo curso";
+}
+<h1>Nuevo curso</h1>
+<form asp-action="Crear" method="post" class="formulario">
+    <div asp-validation-summary="ModelOnly" class="errores"></div>
+    <partial name="_Formulario" model="Model" />
+    <button type="submit" class="boton">Guardar curso</button>
+    <a asp-action="Index" class="boton secundario">Cancelar</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

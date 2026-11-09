@@ -1,0 +1,33 @@
+﻿@model Curso
+
+<div class="dos-columnas">
+    <div class="campo">
+        <label asp-for="Codigo"></label>
+        @if (Model.Id == 0)
+        {
+            <input asp-for="Codigo" />
+        }
+        else
+        {
+            <input asp-for="Codigo" readonly />
+        }
+        <span asp-validation-for="Codigo"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="Creditos"></label>
+        <input asp-for="Creditos" type="number" min="1" step="1" />
+        <span asp-validation-for="Creditos"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre"></span>
+    </div>
+    <div class="campo">
+        <label asp-for="CarreraId"></label>
+        <select asp-for="CarreraId" asp-items="ViewBag.Carreras">
+            <option value="0">Selecciona una carrera</option>
+        </select>
+        <span asp-validation-for="CarreraId"></span>
+    </div>
+</div>
